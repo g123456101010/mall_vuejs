@@ -10,7 +10,7 @@
 </template>
 
 <script>
-    import MainTabBar from "components/tabbar/MainTabBar";
+    import MainTabBar from "components/common/tabbar/MainTabBar";
 
     export default {
         name: "TabBarApp",
