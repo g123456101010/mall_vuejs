@@ -10,12 +10,13 @@
 </template>
 
 <script>
-    import MainTabBar from "components/common/tabbar/MainTabBar";
-
+    import MainTabBar from "@/components/common/tabbar/MainTabBar";
     export default {
         name: "TabBarApp",
         components: {
             MainTabBar
+        },
+        mounted() {
         }
     }
 </script>
@@ -31,7 +32,7 @@
     }
 
     #nav {
-        padding: 30px;
+        /*padding: 30px;*/
     }
 
     #nav a {

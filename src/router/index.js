@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/home/Home.vue'
-import Message from "../views/home/Message";
+import Home from '../views/home/demo/Home.vue'
+import Message from "../views/home/demo/Message";
 import ShopCart from "../views/shopcart/ShopCart";
 //通过use注册插件
 Vue.use(VueRouter)
@@ -9,36 +9,15 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
-        redirect:'/home'
+        redirect:'/category'
     },
     {
-        path: '/home',
-        name: 'Home',
-        component: Home,
-        meta:{
-            title:'首页',
-        },
-        beforeEnter:(to ,from, next)=>{
-            console.log('进入首页')
-            next();
-        },
-        children:[
-            // {
-            //     path: '/',
-            //     redirect:'message'
-            // },
-            {
-                path:'message',
-                name:'Message',
-                component:()=> import('../views/home/Message'),
-            },
-            {
-                path: 'news',
-                name: 'News',
-                component: ()=>import('../views/home/News'),
-            }
-        ]
-
+        path: '/mainHome',
+        name: 'MainHome',
+        component: () => import('../views/home/MainHome'),
+        meta: {
+            title: '商城',
+        }
     },
     {
         path: '/category',
@@ -81,7 +60,36 @@ const routes = [
         meta: {
             title: '用户中心'
         }
-    }
+    },
+    {
+        path: '/demo/home',
+        name: 'Home',
+        component: Home,
+        meta:{
+            title:'首页',
+        },
+        beforeEnter:(to ,from, next)=>{
+            console.log('进入首页')
+            next();
+        },
+        children:[
+            // {
+            //     path: '/',
+            //     redirect:'message'
+            // },
+            {
+                path:'message',
+                name:'Message',
+                component:()=> import('../views/home/demo/Message'),
+            },
+            {
+                path: 'news',
+                name: 'News',
+                component: ()=>import('../views/home/demo/News'),
+            }
+        ]
+
+    },
 ]
 
 const router = new VueRouter({
